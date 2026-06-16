@@ -1,0 +1,24 @@
+name: Prevue Review
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: write
+
+concurrency:
+  group: prevue-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  prevue:
+    uses: Doki064/prevue/.github/workflows/prevue-review.yml@main
+    with:
+      engine: copilot-cli
+      prevue-ref: main
+    secrets:
+      copilot-github-token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
