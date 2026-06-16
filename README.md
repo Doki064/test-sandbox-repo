@@ -11,7 +11,7 @@ Sandbox repo for live demos of [Prevue](https://github.com/Doki064/prevue) — t
 | Consumer config | `.github/prevue.yml` |
 | Custom data skill | `.github/prevue/skills/data/pipeline-standards.md` |
 
-**Prerequisite:** repo secret `COPILOT_GITHUB_TOKEN` (fine-grained user PAT with Copilot Requests). See [docs/SETUP.md](docs/SETUP.md).
+**Prerequisite:** repo secret `CURSOR_API_KEY` for `cursor-cli`. See [docs/SETUP.md](docs/SETUP.md).
 
 ## Demo PR catalog
 

@@ -127,7 +127,7 @@ jobs:
           BASE_SHA: ${{ steps.pinned_refs.outputs.base_sha }}
           FRAMEWORK_SHA: ${{ steps.pinned_refs.outputs.framework_sha }}
           NEEDS_ENGINE: ${{ steps.verb.outputs.needs_engine }}
-          PREVUE_ENGINE: ${{ vars.PREVUE_ENGINE || 'copilot-cli' }}
+          PREVUE_ENGINE: ${{ vars.PREVUE_ENGINE || 'cursor-cli' }}
           REPOSITORY: ${{ github.repository }}
         run: |
           BODY_FILE=$(mktemp)

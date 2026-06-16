@@ -18,7 +18,7 @@ jobs:
   prevue:
     uses: Doki064/prevue/.github/workflows/prevue-review.yml@main
     with:
-      engine: copilot-cli
+      engine: cursor-cli
       prevue-ref: main
     secrets:
-      copilot-github-token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+      cursor-api-key: ${{ secrets.CURSOR_API_KEY }}

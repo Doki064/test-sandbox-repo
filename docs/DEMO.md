@@ -4,7 +4,7 @@ Audience: data engineering teammates. Repo: `Doki064/test-sandbox-repo`.
 
 ## Before the room
 
-1. Confirm `COPILOT_GITHUB_TOKEN` is set under **Settings → Secrets → Actions**.
+1. Confirm `CURSOR_API_KEY` is set under **Settings → Secrets → Actions**.
 2. Open all demo PRs in browser tabs (see README catalog).
 3. Optional: branch protection on `main` requiring check `prevue/review` — shows merge gate on PR #2.
 
@@ -151,7 +151,7 @@ skip:
 |---------|-----|
 | Workflow does not run | Draft PR — mark ready for review |
 | Review skipped instantly | Bot author, `skip-review` label, or fork |
-| No findings | Check Actions logs; confirm `COPILOT_GITHUB_TOKEN` |
+| No findings | Check Actions logs; confirm `CURSOR_API_KEY` |
 | Config ignored | `prevue.yml` must be on **base** branch, not PR head only |
 
 ## Links

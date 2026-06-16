@@ -1,6 +1,6 @@
 # Demo Setup Checklist
 
-Complete these once before the live demo. Reviews will fail at engine install without the Copilot token.
+Complete these once before the live demo. Reviews will fail at engine install without the Cursor API key.
 
 ## 1. Add repository secret
 
@@ -8,9 +8,9 @@ Complete these once before the live demo. Reviews will fail at engine install wi
 
 | Name | Value |
 |------|-------|
-| `COPILOT_GITHUB_TOKEN` | Fine-grained **user** PAT (`github_pat_…`) with **Copilot Requests** permission |
+| `CURSOR_API_KEY` | Cursor API key for headless `cursor-cli` review runs |
 
-Do not use the default `GITHUB_TOKEN` — Copilot CLI requires a user-owned PAT.
+Do not use the default `GITHUB_TOKEN` — the review engine requires its own API credential.
 
 ## 2. Re-run failed workflow jobs
 
