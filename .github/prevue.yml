@@ -37,7 +37,7 @@ classification:
     model: null
 
 engine:
-  name: copilot-cli
+  name: cursor-cli
 
 skip:
   review_bots: []
