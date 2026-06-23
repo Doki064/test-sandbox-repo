@@ -1,10 +1,9 @@
-# Prevue consumer config — UAT-09 test 13 (multi-call split)
-# max_tokens_per_call: 100 forces api_keys.py (security/backend) and migration.sql (data) into separate calls
-# output_reserve_tokens: 50 (must be <= max_tokens_per_call)
+# Prevue consumer config — UAT-09 test 14 (budget alert)
+# max_total_run_tokens: 2000 forces overflow on 5 large SQL files (~3600 tokens)
 
 review:
   max_input_tokens: 120000
-  output_reserve_tokens: 50
+  output_reserve_tokens: 400
   min_severity_to_comment: warning
   min_severity_to_fail: error
   max_inline_comments: 10
@@ -12,9 +11,9 @@ review:
   resolve_outdated: true
   max_known_issues: 20
   max_dismissals: 50
-  max_tokens_per_call: 100
-  max_total_run_tokens: 500000
-  max_review_calls: 2
+  max_tokens_per_call: 120000
+  max_total_run_tokens: 2000
+  max_review_calls: 1
   review_concurrency: 1
 
 labels:
