@@ -1,5 +1,6 @@
 # Prevue consumer config — UAT-09 test 14 (budget alert)
 # max_total_run_tokens: 2000 forces overflow on 5 large SQL files (~3600 tokens)
+# max_tokens_per_call <= max_total_run_tokens — constraint
 
 review:
   max_input_tokens: 120000
@@ -11,7 +12,7 @@ review:
   resolve_outdated: true
   max_known_issues: 20
   max_dismissals: 50
-  max_tokens_per_call: 120000
+  max_tokens_per_call: 2000
   max_total_run_tokens: 2000
   max_review_calls: 1
   review_concurrency: 1
