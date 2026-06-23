@@ -1,9 +1,10 @@
 # Prevue consumer config — UAT-09 test 13 (multi-call split)
 # max_tokens_per_call: 100 forces api_keys.py (security/backend) and migration.sql (data) into separate calls
+# output_reserve_tokens: 50 (must be <= max_tokens_per_call)
 
 review:
   max_input_tokens: 120000
-  output_reserve_tokens: 400
+  output_reserve_tokens: 50
   min_severity_to_comment: warning
   min_severity_to_fail: error
   max_inline_comments: 10
