@@ -48,4 +48,4 @@ skip:
   skip_labels:
     - skip-review
   skip_title_patterns:
-    - "^\[skip prevue\]"
+    - '^\[skip prevue\]'
