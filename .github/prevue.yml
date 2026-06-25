@@ -1,40 +1,14 @@
-# Prevue consumer config — UAT-09 test 14 (budget alert)
-# max_total_run_tokens: 2000 forces overflow on 5 large SQL files (~3600 tokens)
-# max_tokens_per_call <= max_total_run_tokens — constraint
+# Prevue consumer config — cross-file review demo
+# Demonstrates tier-2 gap: PR touches src/api/checkout.py (imports processor.py);
+# processor.py is untouched, not in diff — review has no visibility into its
+# currency validation constraints.
 
 review:
-  max_input_tokens: 120000
-  output_reserve_tokens: 400
+  incremental: true
   min_severity_to_comment: warning
   min_severity_to_fail: error
-  max_inline_comments: 10
-  incremental: false
+  max_inline_comments: 20
   resolve_outdated: true
-  max_known_issues: 20
-  max_dismissals: 50
-  max_tokens_per_call: 2000
-  max_total_run_tokens: 2000
-  max_review_calls: 1
-  review_concurrency: 1
-
-labels:
-  data:
-    - "**/migrations/**"
-    - "**/*.sql"
-    - "pipelines/**"
-    - "dbt/**"
-    - "airflow/**"
-  security:
-    - "**/auth/**"
-    - "**/*secret*"
-    - "**/.env*"
-    - "config/credentials/**"
-
-skills:
-  exclude: []
-  max_skill_bytes: 65536
-  max_total_consumer_bytes: 262144
-  max_consumer_skills: 50
 
 classification:
   fallback:
@@ -45,7 +19,6 @@ engine:
   name: cursor-cli
 
 skip:
-  review_bots: []
   skip_labels:
     - skip-review
   skip_title_patterns:

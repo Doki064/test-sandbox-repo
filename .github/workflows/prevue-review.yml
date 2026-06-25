@@ -16,9 +16,9 @@ concurrency:
 
 jobs:
   prevue:
-    uses: Doki064/prevue/.github/workflows/prevue-review.yml@gsd/phase-09-classification-skill-loading-multi-call-review
+    uses: Doki064/prevue/.github/workflows/prevue-review.yml@main
     with:
       engine: cursor-cli
-      prevue-ref: gsd/phase-09-classification-skill-loading-multi-call-review
+      prevue-ref: main
     secrets:
       cursor-api-key: ${{ secrets.CURSOR_API_KEY }}
