@@ -68,6 +68,13 @@ jobs:
           PREVUE_COMMENT_AUTHOR: ${{ github.event.client_payload.comment_author }}
           PREVUE_COMMENT_AUTHOR_ASSOCIATION: ${{ github.event.client_payload.comment_author_association }}
 
+
+      - name: Debug event file
+        run: |
+          echo "=== GITHUB_EVENT_PATH: $GITHUB_EVENT_PATH"
+          echo "=== file content:"
+          cat "$GITHUB_EVENT_PATH" || echo "(file missing)"
+
       - name: Prevue command
         working-directory: .prevue
         run: uv run prevue command
