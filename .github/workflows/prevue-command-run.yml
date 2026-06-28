@@ -1,5 +1,6 @@
 name: Prevue Command Run
 
+# Privileged run via repository_dispatch from prevue-command gate only.
 on:
   repository_dispatch:
     types: [prevue-command]
@@ -44,7 +45,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           PREVUE_REF: ${{ vars.PREVUE_REF || 'main' }}
-          PREVUE_ENGINE: ${{ vars.PREVUE_ENGINE || 'cursor-cli' }}
+          PREVUE_ENGINE: ${{ vars.PREVUE_ENGINE || 'copilot-cli' }}
 
       - name: Checkout consumer base ref
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
@@ -68,18 +69,14 @@ jobs:
           PREVUE_COMMENT_AUTHOR: ${{ github.event.client_payload.comment_author }}
           PREVUE_COMMENT_AUTHOR_ASSOCIATION: ${{ github.event.client_payload.comment_author_association }}
 
-
-      - name: Debug event file
-        run: |
-          echo "=== GITHUB_EVENT_PATH: $GITHUB_EVENT_PATH"
-          echo "=== file content:"
-          cat "$GITHUB_EVENT_PATH" || echo "(file missing)"
-
       - name: Prevue command
         working-directory: .prevue
         run: uv run prevue command
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          # GITHUB_EVENT_PATH is a runner system var that GITHUB_ENV cannot override.
+          # Use PREVUE_COMMENT_EVENT_PATH so load_comment_context() reads the materialized file.
+          PREVUE_COMMENT_EVENT_PATH: ${{ runner.temp }}/issue_comment.json
           PREVUE_STICKY_OWNER_LOGINS: ${{ vars.PREVUE_STICKY_OWNER_LOGINS }}
           PREVUE_COMMENT_BODY_PATH: ${{ runner.temp }}/prevue-comment-body.txt
           PREVUE_COMMENT_AUTHOR: ${{ github.event.client_payload.comment_author }}
