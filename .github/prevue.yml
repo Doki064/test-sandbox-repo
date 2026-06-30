@@ -15,9 +15,6 @@ classification:
     enabled: true
     model: null
 
-engine:
-  name: cursor-cli
-
 skip:
   skip_labels:
     - skip-review
