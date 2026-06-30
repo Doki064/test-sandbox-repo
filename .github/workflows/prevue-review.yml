@@ -16,9 +16,9 @@ concurrency:
 
 jobs:
   prevue:
-    uses: Doki064/prevue/.github/workflows/prevue-review.yml@main
+    uses: Doki064/prevue/.github/workflows/prevue-review.yml@gsd/phase-10-boundary-contracts
     with:
       engine: cursor-cli
-      prevue-ref: main
+      prevue-ref: gsd/phase-10-boundary-contracts
     secrets:
       cursor-api-key: ${{ secrets.CURSOR_API_KEY }}
