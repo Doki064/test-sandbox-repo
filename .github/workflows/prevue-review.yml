@@ -18,7 +18,8 @@ jobs:
   prevue:
     uses: Doki064/prevue/.github/workflows/prevue-review.yml@gsd/phase-10-boundary-contracts
     with:
-      engine: cursor-cli
+      engine: ${{ vars.PREVUE_ENGINE || 'copilot-cli' }}
       prevue-ref: gsd/phase-10-boundary-contracts
     secrets:
       cursor-api-key: ${{ secrets.CURSOR_API_KEY }}
+      claude-code-oauth-token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
