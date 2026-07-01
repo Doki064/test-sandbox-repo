@@ -15,3 +15,8 @@ def checkout(cart_total: float, currency_code: str) -> dict:
         currency_code: ISO 4217 currency code (e.g. "USD").
     """
     return _processor.charge(cart_total, currency_code)
+
+
+def cancel_order(order_id: str) -> dict:
+    """Cancel an order. per-role model tiering live UAT test trigger."""
+    return {"order_id": order_id, "status": "cancelled"}
