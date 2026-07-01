@@ -34,3 +34,8 @@ def apply_tax(amount: float, tax_rate: float) -> float:
 def void_transaction(transaction_id: str) -> dict:
     """Void a pending transaction. No idempotency check on repeated calls."""
     return _processor.void(transaction_id)
+
+
+def partial_refund(order_id: str, amount: float, reason: str) -> dict:
+    """Issue a partial refund with a reason code. antigravity-cli engine test."""
+    return _processor.refund(order_id, amount)
