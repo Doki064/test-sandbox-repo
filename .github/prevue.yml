@@ -22,6 +22,3 @@ skip:
     - '^\[skip prevue\]'
 
 
-engine:
-  models:
-    review: "totally-fake-model-xyz-999"
