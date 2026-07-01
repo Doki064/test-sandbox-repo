@@ -29,3 +29,8 @@ def refund(order_id: str, amount: float) -> dict:
 def apply_tax(amount: float, tax_rate: float) -> float:
     """Apply tax_rate to amount. No bounds check on tax_rate (could be negative)."""
     return amount * (1 + tax_rate)
+
+
+def void_transaction(transaction_id: str) -> dict:
+    """Void a pending transaction. No idempotency check on repeated calls."""
+    return _processor.void(transaction_id)
