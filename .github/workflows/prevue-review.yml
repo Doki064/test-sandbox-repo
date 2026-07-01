@@ -23,3 +23,22 @@ jobs:
     secrets:
       cursor-api-key: ${{ secrets.CURSOR_API_KEY }}
       claude-code-oauth-token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      copilot-github-token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+      antigravity-api-key: ${{ secrets.ANTIGRAVITY_API_KEY }}
+
+  # Temporary UAT probe (phase 10 live verification) — echoes the reusable
+  # workflow's job outputs map so we can confirm OUTP-05 wiring end-to-end.
+  # Remove after /gsd-verify-work phase 10 live UAT concludes.
+  uat-verify-outputs:
+    needs: prevue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo prevue job outputs
+        run: |
+          echo "schema_version=${{ needs.prevue.outputs.schema_version }}"
+          echo "conclusion=${{ needs.prevue.outputs.conclusion }}"
+          echo "error_count=${{ needs.prevue.outputs.error_count }}"
+          echo "warning_count=${{ needs.prevue.outputs.warning_count }}"
+          echo "info_count=${{ needs.prevue.outputs.info_count }}"
+          echo "tokens=${{ needs.prevue.outputs.tokens }}"
+          echo "cost_usd=${{ needs.prevue.outputs.cost_usd }}"
