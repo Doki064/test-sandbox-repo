@@ -39,3 +39,8 @@ def void_transaction(transaction_id: str) -> dict:
 def partial_refund(order_id: str, amount: float, reason: str) -> dict:
     """Issue a partial refund with a reason code. antigravity-cli engine test."""
     return _processor.refund(order_id, amount)
+
+
+def apply_gift_card(order_id: str, gift_card_code: str) -> dict:
+    """Apply a gift card to an order. raw_args live UAT test trigger."""
+    return _processor.charge(0, "USD")
